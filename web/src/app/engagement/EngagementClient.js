@@ -363,7 +363,7 @@ function HighSchoolContent({ blocks }) {
 }
 
 // sponsorship tiers defined in hierarchical order
-// issue 172 requested clear distinction for diamond, gold, platinum partners with bold section headers and divider lines
+// clean bold titles with icons and partner counts, avoiding corny corporate marketing filler
 const PARTNER_TIERS = [
   {
     id: 'Strategic',
@@ -372,7 +372,6 @@ const PARTNER_TIERS = [
     color: 'text-red-600 dark:text-red-400',
     bg: 'bg-red-50 dark:bg-red-950/40',
     border: 'border-red-300 dark:border-red-800',
-    description: 'Long-term institutional partners with multi-year joint commitments.',
   },
   {
     id: 'Diamond',
@@ -381,7 +380,6 @@ const PARTNER_TIERS = [
     color: 'text-sky-600 dark:text-sky-400',
     bg: 'bg-sky-50 dark:bg-sky-950/40',
     border: 'border-sky-300 dark:border-sky-800',
-    description: 'Premier technology leaders co-developing major AI research initiatives.',
   },
   {
     id: 'Platinum',
@@ -390,7 +388,6 @@ const PARTNER_TIERS = [
     color: 'text-indigo-600 dark:text-indigo-400',
     bg: 'bg-indigo-50 dark:bg-indigo-950/40',
     border: 'border-indigo-300 dark:border-indigo-800',
-    description: 'Key research collaborators advancing targeted innovation domains.',
   },
   {
     id: 'Gold',
@@ -399,7 +396,6 @@ const PARTNER_TIERS = [
     color: 'text-amber-600 dark:text-amber-400',
     bg: 'bg-amber-50 dark:bg-amber-950/40',
     border: 'border-amber-300 dark:border-amber-800',
-    description: 'Active industry and academic partners in specialized research projects.',
   },
   {
     id: 'Partner',
@@ -408,7 +404,6 @@ const PARTNER_TIERS = [
     color: 'text-gray-600 dark:text-gray-400',
     bg: 'bg-gray-100 dark:bg-gray-800',
     border: 'border-gray-200 dark:border-gray-800',
-    description: 'Valued organizations collaborating with AIRi across academic and industry domains.',
   },
 ];
 
@@ -878,20 +873,15 @@ function PartnersContent({
 
               return (
                 <section key={tier.id} className="space-y-6">
-                  {/* tier separation line & bold header */}
+                  {/* clean tier separation line & bold header */}
                   <div className="flex items-center justify-between border-b-2 border-gray-200 dark:border-gray-800 pb-3">
                     <div className="flex items-center gap-3">
                       <div className={`p-2.5 rounded-2xl ${tier.bg} ${tier.color}`}>
                         <TierIcon className="w-5 h-5" />
                       </div>
-                      <div>
-                        <h3 className="text-xl sm:text-2xl font-black tracking-tight text-gray-900 dark:text-white uppercase flex items-center gap-2">
-                          <span>{tier.title}</span>
-                        </h3>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                          {tier.description}
-                        </p>
-                      </div>
+                      <h3 className="text-xl sm:text-2xl font-black tracking-tight text-gray-900 dark:text-white uppercase">
+                        {tier.title}
+                      </h3>
                     </div>
                     <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
                       {tierPartners.length} {tierPartners.length === 1 ? 'partner' : 'partners'}
@@ -936,10 +926,10 @@ function PartnersContent({
             </div>
             <div>
               <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                Previous Partners & Concluded Collaborations
+                Previous Partners
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 leading-relaxed">
-                Organizations that have partnered with AIRi on completed research projects and initiatives. We value the foundational work accomplished together.
+                Organizations that previously collaborated with AIRi on completed research projects.
               </p>
             </div>
           </div>
