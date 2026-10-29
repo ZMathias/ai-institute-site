@@ -68,7 +68,7 @@ export default async function DepartmentPage({ params }) {
   const projects = transformProjectData(projectsData);
   const publications = transformPublicationData(publicationsData);
   const staff = transformStaffData(staffData);
-  const teams = transformTeamData(rawTeams);
+  const teams = transformTeamData(rawTeams).filter((team) => !team.isArchived);
 
   return (
     <>
